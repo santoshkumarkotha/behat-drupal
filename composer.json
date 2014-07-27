@@ -2,6 +2,7 @@
 	"require-dev": {
 		"behat/behat": "2.5.*@stable",
 		"behat/mink-extension": "1.3.*@stable",
+		"behat/mink-goutte-driver": "1.0.*@stable",
 		"phpunit/phpunit": "4.1.*@stable"
 
 	},
