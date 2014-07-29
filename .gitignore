@@ -1,2 +1,4 @@
-vendor
 docroot
+node_modules
+vendor
+

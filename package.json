@@ -1,0 +1,8 @@
+{
+	"name": "bdd-drupal",
+	"version": "0.1.0",
+	"author": "Helior Colorado <me@helior.info> (http://github.com/helior)",
+	"devDependencies": {
+		"phantomjs": "*"
+	}
+}
