@@ -1,3 +1,4 @@
+@javascript
 Feature: Yahoo Crawler
 	In order to try out Mink/Behat
 	As a developer

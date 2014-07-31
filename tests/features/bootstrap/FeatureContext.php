@@ -32,6 +32,28 @@ class FeatureContext extends MinkContext
         // Initialize your context here
     }
 
+    /**
+     * @BeforeSuite
+     */
+    public static function doSomethingBeforeSuite()
+    {
+        print_r("THIS IS HAPPENIN\n");
+        // do something before suite even runs
+    }
+
+    /**
+     * @AfterStep
+     */
+     public function takeScreenshotAfterFailedStep($event)
+     {
+       // if ($event->getResult() == 4) {
+         if ($this->getSession()->getDriver() instanceof \Behat\Mink\Driver\Selenium2Driver) {
+           $screenshot = $this->getSession()->getDriver()->getScreenshot();
+           file_put_contents('/tmp/screenshot-' . time() . '.png', $screenshot);
+         }
+       // }
+     }
+
 //
 // Place your definition and hook methods here:
 //
