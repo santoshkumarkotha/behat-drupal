@@ -35,23 +35,19 @@ class FeatureContext extends MinkContext
     /**
      * @BeforeSuite
      */
-    public static function doSomethingBeforeSuite()
-    {
-        print_r("THIS IS HAPPENIN\n");
+    public static function doSomethingBeforeSuite() {
         // do something before suite even runs
+        print_r("THIS IS HAPPENIN\n");
     }
 
     /**
      * @AfterStep
      */
-     public function takeScreenshotAfterFailedStep($event)
-     {
-       // if ($event->getResult() == 4) {
-         if ($this->getSession()->getDriver() instanceof \Behat\Mink\Driver\Selenium2Driver) {
-           $screenshot = $this->getSession()->getDriver()->getScreenshot();
-           file_put_contents('/tmp/screenshot-' . time() . '.png', $screenshot);
-         }
-       // }
+     public function takeScreenshotAfterFailedStep() {
+        if ($this->getSession()->getDriver() instanceof \Behat\Mink\Driver\Selenium2Driver) {
+            $screenshot = $this->getSession()->getDriver()->getScreenshot();
+            file_put_contents('/tmp/screenshot-' . time() . '.png', $screenshot);
+        }
      }
 
 //
