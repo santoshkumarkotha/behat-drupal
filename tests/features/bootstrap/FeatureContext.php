@@ -37,7 +37,14 @@ class FeatureContext extends MinkContext
      */
     public static function doSomethingBeforeSuite() {
         // do something before suite even runs
-        print_r("THIS IS HAPPENIN\n");
+        $descriptorspec = array(
+           0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+           1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+           2 => array("file", "/tmp/error-output.txt", "a") // stderr is a file to write to
+        );
+
+        // TODO read in YAML config for phantomjs bin, webdriver port
+        proc_open('../node_modules/phantomjs/bin/phantomjs --webdriver=8643', $descriptorspec, $pipes);
     }
 
     /**
