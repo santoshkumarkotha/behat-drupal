@@ -2,7 +2,7 @@
 default:
   extensions:
     Behat\MinkExtension\Extension:
-      base_url:	http://yahoo.com
+      base_url:	http://nbc.com
       goutte:    ~
       selenium2:
         wd_host: http://localhost:8643/wd/hub
