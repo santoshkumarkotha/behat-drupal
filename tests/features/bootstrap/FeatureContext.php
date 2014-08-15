@@ -7,7 +7,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 
-use Behat\MinkExtension\Context\MinkContext;
+use Drupal\DrupalExtension\Context\DrupalContext;
 
 //
 // Require 3rd-party libraries here:
@@ -19,7 +19,7 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * Features context.
  */
-class FeatureContext extends MinkContext
+class FeatureContext extends DrupalContext
 {
     /**
      * Initializes context.
