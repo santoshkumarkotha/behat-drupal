@@ -4,8 +4,9 @@
 		"behat/mink-extension": "2.0.*@stable",
 		"behat/mink-goutte-driver": "1.0.*@stable",
 		"behat/mink-selenium2-driver": "1.1.*@stable",
+    "drupal/drupal-extension": "2.0.*@dev",
 		"phpunit/phpunit": "4.1.*@stable",
-		"drupal/drupal-extension": "2.0.*@dev"
+    "sanpi/behatch-contexts": "*"
 
 	},
 	"minimum-stability": "dev"
