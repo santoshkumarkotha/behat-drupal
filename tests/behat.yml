@@ -33,6 +33,7 @@ default:
         - Drupal\DrupalExtension\Context\DrupalContext
         - Sanpi\Behatch\Context\BrowserContext
     webservices:
+      enabled: false
       contexts:
         - Sanpi\Behatch\Context\RestContext
         - Sanpi\Behatch\Context\JsonContext
