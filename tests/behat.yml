@@ -28,7 +28,7 @@ default:
     filters:
       tags: ~@wip
   suites:
-    default:
+    browser:
       contexts:
         - Drupal\DrupalExtension\Context\DrupalContext
         - Sanpi\Behatch\Context\BrowserContext
@@ -43,6 +43,7 @@ default:
       base_url: http://nbc.com
       sessions:
         default:
+          goutte: ~
           browser_stack:
             username: heliorcolorado1
             access_key: YhrWqQcCvpeJc1sqXgCr
@@ -52,10 +53,21 @@ local:
   extensions:
     Behat\MinkExtension:
       base_url: http://local.nbc.com
+      sessions:
+        default:
+          goutte: false
+          selenium2: ~
+          browser_stack: false
+        remote:
+          browser_stack: ~
 development:
   extensions:
     Behat\MinkExtension:
       base_url: http://dev-www.nbc.com
+      sessions:
+        default:
+          goutte: ~
+          browser_stack: false
 acceptance:
   extensions:
     Behat\MinkExtension:
@@ -68,3 +80,16 @@ production:
   extensions:
     Behat\MinkExtension:
       base_url: http://nbc.com
+
+# Requires build scripts for Jenkins
+
+# local profile
+#   Test with Phantom JS (screenshots)
+#     - needs @BeforeSuite to instantiate Phantom JS
+#   Test with Gherkin (low priority - Phantom JS can just handle this)
+#   Test with Selenium Driver (Suuuuper Slow)
+#     - needs @BeforeSuite to instantiate Selenium
+#
+# dev profile
+#   Test basic functionality with Gherkin
+#   Test all with Phantom JS
