@@ -1,28 +1,3 @@
-# # behat.yml
-# default:
-#   suites:
-#     default:
-#       contexts:
-#         - Drupal\DrupalExtension\Context\DrupalContext
-#         - Sanpi\Behatch\Context\BrowserContext
-#     extensions:
-#       Sanpi\Behatch\Extension: ~
-#       Behat\MinkExtension:
-#         base_url: http://acc-www.nbc.com
-#         goutte: ~
-#         selenium2:
-#           wd_host: http://heliorcolorado1:YhrWqQcCvpeJc1sqXgCr@hub.browserstack.com/wd/hub
-#           # getenv(BROWSERSTACK_USERNAME)
-#           # getenv(BROWSERSTACK_ACCESS_KEY)
-#           browser_stack:
-#             browser: firefox
-#             username: heliorcolorado1
-#             access_key: YhrWqQcCvpeJc1sqXgCr
-#       Drupal\DrupalExtension:
-#         blackbox: ~
-#         # subcontexts:
-#           # paths: { foo: './' }
-#           # requires files like *.behat.inc; classes should extend Drupal\DrupalExtension\Context\DrupalSubContextInterface
 default:
   gherkin:
     filters:
@@ -66,7 +41,7 @@ local-phantomjs:
         phantomjs:
           selenium2:
             wd_host: http://localhost:8643/wd/hub
-dev:
+dev-phantomjs:
   extensions:
     Behat\MinkExtension:
       base_url: http://dev-www.nbc.com
@@ -94,3 +69,17 @@ acc-selenium:
       sessions:
         default:
           selenium2: ~
+acc-phantomjs:
+  formatters:
+    pretty: true
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://acc.nbc.com
+      default_session: goutte
+      javascript_session: phantomjs
+      sessions:
+        goutte:
+          goutte: ~
+        phantomjs:
+          selenium2:
+            wd_host: http://localhost:8643/wd/hub
