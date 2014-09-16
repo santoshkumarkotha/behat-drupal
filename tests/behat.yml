@@ -34,62 +34,63 @@ default:
         - Sanpi\Behatch\Context\BrowserContext
     webservices:
       enabled: false
+      filters:
+        tags: webservice
       contexts:
         - Sanpi\Behatch\Context\RestContext
         - Sanpi\Behatch\Context\JsonContext
-  extensions:
-    Sanpi\Behatch\Extension: ~
-    Behat\MinkExtension:
-      base_url: http://nbc.com
-      sessions:
-        default:
-          goutte: ~
-          browser_stack:
-            username: heliorcolorado1
-            access_key: YhrWqQcCvpeJc1sqXgCr
-local:
+local-selenium:
   formatters:
     pretty: true
   extensions:
     Behat\MinkExtension:
       base_url: http://local.nbc.com
+      default_session: goutte
+      javascript_session: selenium
       sessions:
-        default:
-          goutte: false
+        goutte:
+          goutte: ~
+        selenium:
           selenium2: ~
-          browser_stack: false
-        remote:
-          browser_stack: ~
-development:
+local-phantomjs:
+  formatters:
+    pretty: true
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://local.nbc.com
+      default_session: goutte
+      javascript_session: phantomjs
+      sessions:
+        goutte:
+          goutte: ~
+        phantomjs:
+          selenium2:
+            wd_host: http://localhost:8643/wd/hub
+dev:
   extensions:
     Behat\MinkExtension:
       base_url: http://dev-www.nbc.com
+      default_session: goutte
+      javascript_session: phantomjs
       sessions:
-        default:
+        goutte:
           goutte: ~
-          browser_stack: false
-acceptance:
+        phantomjs:
+          selenium2:
+            wd_host: http://localhost:8643/wd/hub
+acc-browser-stack:
   extensions:
     Behat\MinkExtension:
       base_url: http://acc-www.nbc.com
-stage:
+      sessions:
+        default:
+          browser_stack:
+            # username: [This should be set in an environment variable]
+            # access_key: [This should be set in an environment variable]
+acc-selenium:
   extensions:
     Behat\MinkExtension:
-      base_url: http://stage-www.nbc.com
-production:
-  extensions:
-    Behat\MinkExtension:
-      base_url: http://nbc.com
-
-# Requires build scripts for Jenkins
-
-# local profile
-#   Test with Phantom JS (screenshots)
-#     - needs @BeforeSuite to instantiate Phantom JS
-#   Test with Gherkin (low priority - Phantom JS can just handle this)
-#   Test with Selenium Driver (Suuuuper Slow)
-#     - needs @BeforeSuite to instantiate Selenium
-#
-# dev profile
-#   Test basic functionality with Gherkin
-#   Test all with Phantom JS
+      base_url: http://acc-www.nbc.com
+      sessions:
+        default:
+          selenium2: ~
