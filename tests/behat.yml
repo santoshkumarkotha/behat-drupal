@@ -52,7 +52,7 @@ local:
     pretty: true
   extensions:
     Behat\MinkExtension:
-      base_url: http://local.nbc.com
+      base_url: http://nbc.com
       sessions:
         default:
           goutte: false
