@@ -1,7 +1,8 @@
 ### Install
 Run `./rebuild.sh` to install Drupal, Composer dependencies, and Node.js Dependencies.
 
-### Run Tests
+### Start PhantomJS server
 This uses PhantomJS for headless-browser testing, so make sure you're running PhantomJS: `./node_modules/phantomjs/bin/phantomjs --webdriver=8643`
 
-Then you can run Behat: `cd tests; ../vendor/bin/behat`
+### Start Selenium2 Server
+Download Selenium using `curl http://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar > selenium.jar`
